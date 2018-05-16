@@ -1,12 +1,17 @@
 <?php
 namespace Nobin;
 
+use GuzzleHttp\Client;
 use Sunra\PhpSimple\HtmlDomParser;
 
-require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 class Scraper 
 {
+	public static function client(){
+		return new Client();
+    }
+    
 	public static function html($html){
 		return HtmlDomParser::str_get_html( $html );
 	}
