@@ -1,6 +1,8 @@
 {
-    "name": "nasir/scraper",
-    "type": "composer-plugin",
+    "name": "nobin/scraper",
+    "description": "A PHP Web Scraper Starter Kit",
+    "keywords": ["scraper", "starter"],
+    "type": "package",
     "authors": [
         {
             "name": "NasirNobin",
@@ -10,10 +12,17 @@
     "autoload": {
         "files": [
             "helpers.php"
-        ]
+        ],
+        "psr-4": {
+            "Twitter\\" : "src/"
+        }
+
     },
     "require": {
         "guzzlehttp/guzzle": "^6.3",
         "sunra/php-simple-html-dom-parser": "^1.5"
-    }
+    },
+
+    "version": "1.0.0",
+    "minimum-stability": "dev"
 }

@@ -4,8 +4,6 @@ namespace Nobin;
 use GuzzleHttp\Client;
 use Sunra\PhpSimple\HtmlDomParser;
 
-require_once __DIR__ . '/vendor/autoload.php';
-
 class Scraper
 {
 	public $response;
