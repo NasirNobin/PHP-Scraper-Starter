@@ -2,13 +2,19 @@
 namespace Nobin;
 
 use GuzzleHttp\Client;
+use duncan3dc\Laravel\Dusk;
 use Sunra\PhpSimple\HtmlDomParser;
+use Facebook\WebDriver\Chrome\ChromeOptions;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
+use Facebook\WebDriver\Remote\DesiredCapabilities;
 
 class Scraper
 {
 	public $response;
 	public $headers;
 	public $client;
+	public $browser;
+	public $driver;
 
 	const DOMAIN = false;
 
@@ -30,10 +36,41 @@ class Scraper
 		return $this->client;
 	}
 
+	public function browser(){
+
+		if ( $this->browser ) {
+			return $this->browser;
+		}
+
+		$this->browser = new Dusk($this->driver());
+
+		return $this->browser;
+	}
+
+	function headless(){
+		$this->driver = new ChromeDriver(9515);
+		return $this;
+	}
+
+	public function driver(){
+
+		if ( $this->driver ) {
+			return $this->driver;
+		}
+
+		$this->driver = new ChromeDriver(9515, ['--disable-gpu']);
+
+		return $this->driver;
+	}
+
 	public function get($url){
 		$this->response = $this->client()->get($url);
 
 		return $this;
+	}
+
+	public function visit($url = ''){
+		return $this->browser()->visit($url);
 	}
 
 	function getBody(){

@@ -19,7 +19,8 @@
     },
     "require": {
         "guzzlehttp/guzzle": "^6.3",
-        "sunra/php-simple-html-dom-parser": "^1.5"
+        "sunra/php-simple-html-dom-parser": "^1.5",
+        "duncan3dc/dusk": "dev-master"
     },
 
     "version": "1.0.0",
