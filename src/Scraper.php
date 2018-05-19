@@ -15,7 +15,7 @@ class Scraper
 	public function client(){
 
 		if ( $this->client ) {
-			return;
+			return $this->client;
 		}
 
 		$this->headers = [
